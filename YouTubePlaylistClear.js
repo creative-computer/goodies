@@ -1,6 +1,15 @@
 // 	Instructions:
 // 		1. Update playlist variable as applicable
 // 		2. Update timeDelay variable as applicable, increase time for poor performance
+// 		3. Open playlist page in Chrome and open Developer Tools
+// 		4. In Dev Tools > Console window, enter command "allow pasting" (first time only)
+// 		5. Copy code and paste into Console window and execute
+// 		6. Should remove the first 100 videos, reload window and repeat as needed
+
+
+// ----- BEGIN CODE TO COPY ----- //
+var playlist 	= 'Watch later'; 	// Set playlist name
+var timeDelay 	= 250; 				// increase time delay as needed
 
 function removeVideos() {
 	const videos = document.querySelectorAll('ytd-playlist-video-renderer');
@@ -15,11 +24,6 @@ function removeVideos() {
 	function processVideo() {
 		if (index < videos.length) {
 			console.log(`Processing video ${index + 1}/${videos.length}...`);
-
-			// ----- BEGIN CONFIG VARS ----- //
-			var playlist = 'Watch later'; // Set playlist name
-			var timeDelay = 250; // increase time delay as needed
-			// ----- END CONFIG VARS ----- //
 
 			// Locate the menu button for the current video
 			var mBtnSel = 'button#button[aria-label="Action menu"]';
@@ -60,5 +64,7 @@ function removeVideos() {
 }
 
 removeVideos();
+// ----- END CODE TO COPY ----- //
+
 
 // Original code: https://www.reddit.com/r/youtube/comments/1gtlcft/automate_clearing_your_youtube_watch_later/
